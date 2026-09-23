@@ -1,0 +1,65 @@
+.lc-cta {
+  position: relative;
+  padding-block: 7.2rem;
+  background: var(--color-blue-3);
+}
+
+.lc-cta-inner {
+  display: flex;
+  max-width: 72rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  text-align: center;
+}
+
+.lc-cta h2,
+.lc-cta p {
+  color: var(--color-black);
+}
+
+.lc-cta h2 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.lc-cta p {
+  font-size: var(--font-bold-md);
+  line-height: var(--line-bold-md);
+}
+
+.lc-cta :global(.ds-button) {
+  width: min(100%, 24rem);
+}
+
+@media (min-width: 768px) {
+  .lc-cta {
+    padding-block: 10rem;
+  }
+
+  .lc-cta h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+
+  .lc-cta p {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .lc-cta {
+    padding-block: 12rem;
+  }
+
+  .lc-cta h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .lc-cta p {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}

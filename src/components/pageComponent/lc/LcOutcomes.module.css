@@ -1,0 +1,126 @@
+.lc-outcomes {
+  padding-block: 7.2rem;
+  background: var(--color-white);
+}
+
+.lc-outcomes-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.section-heading {
+  display: flex;
+  max-width: 88rem;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.section-label,
+.outcome-label {
+  width: fit-content;
+  padding: 0.6rem 1.6rem;
+  border-radius: 999rem;
+  background: rgb(180 231 145 / 28%);
+  color: var(--color-green-1);
+}
+
+.outcome-label.outcome-label-muted {
+  background: var(--color-off-white-1);
+  color: var(--color-grey-2);
+}
+
+.section-heading h2,
+.outcome-grid h3 {
+  color: var(--color-black);
+}
+
+.outcome-grid p:not(.outcome-label) {
+  color: var(--color-grey-1);
+}
+
+.outcome-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.outcome-grid li {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2.4rem;
+  border: 0.1rem solid var(--color-grey-4);
+  border-radius: 0.8rem;
+  background: var(--color-white);
+}
+
+.outcome-image {
+  width: 100%;
+  height: 16rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.section-heading h2 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.outcome-grid h3 {
+  font-size: var(--font-bold-lg);
+  line-height: var(--line-bold-lg);
+}
+
+@media (min-width: 768px) {
+  .lc-outcomes {
+    padding-block: 10rem;
+  }
+
+  .lc-outcomes-inner {
+    gap: 4.8rem;
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+
+  .outcome-grid h3 {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+
+  .outcome-grid p:not(.outcome-label) {
+    font-size: var(--font-body-lg);
+    line-height: var(--line-body-lg);
+  }
+
+  .outcome-grid li {
+    padding: 3.2rem;
+  }
+
+  .outcome-image {
+    height: 20rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lc-outcomes {
+    padding-block: 12rem;
+  }
+
+  .lc-outcomes-inner {
+    gap: 5.6rem;
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .outcome-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

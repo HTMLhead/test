@@ -1,0 +1,351 @@
+.story {
+  --logo-focus: 0;
+  --inactive-logo: color-mix(
+    in srgb,
+    #5a695a calc((1 - var(--logo-focus)) * 100%),
+    #d0d2cb
+  );
+  --move: 0;
+  --story-surface: color-mix(
+    in srgb,
+    var(--color-green-4) calc((1 - var(--move)) * 100%),
+    var(--color-white)
+  );
+  --dots: 0;
+  --center: 0;
+  --outer: 0;
+  --complete: 0;
+  --progress: 0;
+  position: relative;
+  /* Extend the finale while keeping the existing scroll speed. */
+  height: 1060svh;
+  background: var(--story-surface);
+  color: #22291f;
+}
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 64rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+.logo {
+  position: absolute;
+  left: calc(66% - var(--move) * 38%);
+  top: 50%;
+  width: min(79vw, 94svh);
+  aspect-ratio: 1;
+  opacity: calc(0.4 + var(--logo-focus) * 0.6);
+  transform: translate(-50%, -50%)
+    skew(calc(-24deg + var(--move) * 24deg), calc(-10deg + var(--move) * 10deg))
+    scale(calc(1.3 - var(--move) * 0.78)) scaleY(calc(0.8 + var(--move) * 0.2));
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+.logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.intro,
+.chapter {
+  --reveal: 0;
+  position: absolute;
+  inset: 0;
+  opacity: var(--reveal);
+  transform: translateY(calc((1 - var(--reveal)) * 2.4rem));
+  will-change: transform, opacity;
+}
+.intro {
+  --reveal: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: min(120rem, calc(100% - 12rem));
+  margin: auto;
+  padding-bottom: 2rem;
+}
+.intro h1 {
+  font-size: clamp(4.2rem, 5.1vw, 7.2rem);
+  letter-spacing: -0.055em;
+  line-height: 1.25;
+  margin: 0 0 2.4rem;
+  font-weight: 700;
+}
+.intro h1 span {
+  color: #2f5d32;
+}
+.introDescription {
+  color: var(--color-grey-1);
+  font-size: 1.8rem;
+  line-height: 1.9;
+  letter-spacing: -0.03em;
+}
+.chapter {
+  display: flex;
+  align-items: center;
+  padding: 7rem 0 9rem;
+}
+.copy {
+  width: 44%;
+  max-width: 58rem;
+  margin-left: 53%;
+}
+.chapterName {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #538539;
+  margin: 0 0 1.6rem;
+}
+.copy h2 {
+  font-size: clamp(3.6rem, 3.7vw, 5.4rem);
+  letter-spacing: -0.05em;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.description {
+  font-size: 1.65rem;
+  line-height: 1.9;
+  color: #697063;
+  letter-spacing: -0.025em;
+  margin-top: 2.4rem;
+  word-break: keep-all;
+}
+.details {
+  margin-top: 2.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.6rem;
+  max-width: 46rem;
+}
+.details li {
+  font-size: 1.15rem;
+  color: #6e7765;
+  white-space: nowrap;
+}
+.details li::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: #83a86b;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+}
+.progress {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #6bac43;
+  transform: scaleX(var(--progress));
+  transform-origin: left;
+}
+@media (max-width: 1100px) {
+  .intro {
+    width: calc(100% - 8rem);
+  }
+  .copy {
+    width: 45%;
+    margin-left: 51%;
+  }
+  .copy h2 {
+    font-size: clamp(3.2rem, 4vw, 4.4rem);
+  }
+  .description {
+    font-size: 1.5rem;
+  }
+  .description br {
+    display: contents;
+  }
+  .description br::after {
+    content: " ";
+  }
+}
+@media (max-width: 767px) {
+  .story {
+    height: 1007svh;
+  }
+  .stage {
+    min-height: 64rem;
+  }
+  .intro {
+    width: calc(100% - 4.8rem);
+    padding-bottom: 4rem;
+  }
+  .intro h1 {
+    font-size: clamp(3.2rem, 7.8vw, 5.6rem);
+    line-height: 1.35;
+    margin-top: 0;
+  }
+  .introDescription {
+    font-size: 1.4rem;
+  }
+  .logo {
+    width: 95vw;
+    left: calc(70% - var(--move) * 20%);
+    top: calc(48% - var(--move) * 19%);
+    transform: translate(-50%, -50%)
+      skew(
+        calc(-24deg + var(--move) * 24deg),
+        calc(-10deg + var(--move) * 10deg)
+      )
+      scale(calc(1.65 - var(--move) * 1.15))
+      scaleY(calc(0.8 + var(--move) * 0.2));
+  }
+  .chapter {
+    align-items: flex-start;
+    padding: 0;
+  }
+  .copy {
+    position: absolute;
+    top: 48%;
+    width: calc(100% - 4.8rem);
+    max-width: none;
+    margin-left: 2.4rem;
+  }
+  .chapterName {
+    margin: 1rem 0 0.8rem;
+    font-size: 1.2rem;
+  }
+  .copy h2 {
+    font-size: clamp(2.8rem, 7.3vw, 3.8rem);
+    line-height: 1.25;
+  }
+  .description {
+    margin-top: 1.4rem;
+    font-size: 1.35rem;
+    line-height: 1.65;
+    max-width: 40rem;
+  }
+  .details {
+    margin-top: 1.4rem;
+    gap: 0.4rem 1rem;
+  }
+  .details li {
+    font-size: 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce), (max-height: 639px) {
+  .story {
+    --move: 1;
+    height: auto;
+  }
+  .stage {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+  }
+  .logo {
+    display: none;
+  }
+  .intro,
+  .chapter {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    min-height: 70svh;
+    padding: 10rem 2.4rem 5rem;
+    width: 100%;
+  }
+  .intro {
+    min-height: 90svh;
+    background: var(--color-green-4);
+  }
+  .chapter {
+    border-top: 1px solid #dce0d5;
+    padding-top: 24rem;
+  }
+  .chapter::before {
+    content: "";
+    position: absolute;
+    top: 4rem;
+    left: 2.4rem;
+    width: 16rem;
+    height: 16rem;
+    background: url("/assets/img/brand/codesquad-symbol.svg") center / contain
+      no-repeat;
+  }
+  .copy {
+    position: static;
+    width: 100%;
+    margin: 0;
+    max-width: 58rem;
+  }
+  .chapters,
+  .progress {
+    display: none;
+  }
+}
+
+.actions {
+  margin-top: 3.2rem;
+}
+.chapters {
+  position: absolute;
+  z-index: 2;
+  bottom: 3.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.chapters button {
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.dotTrack {
+  position: relative;
+  display: block;
+  width: 1.8rem;
+  height: 1.8rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #c4cbbd;
+  transition: box-shadow 180ms ease;
+}
+.dotFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--dot-fill, 0%);
+  background: #60b71c;
+}
+.chapters button:hover .dotTrack {
+  box-shadow: 0 0 0 0.4rem rgb(83 133 57 / 15%);
+}
+.chapters button[aria-current] .dotTrack {
+  box-shadow:
+    0 0 0 0.4rem var(--story-surface),
+    0 0 0 0.5rem #538539;
+}
+.chapters button:focus-visible {
+  outline: 2px solid #538539;
+  outline-offset: 2px;
+}
+@media (max-width: 767px) {
+  .actions {
+    margin-top: 2rem;
+  }
+  .chapters {
+    bottom: 1.6rem;
+  }
+}
+@media (prefers-reduced-motion: reduce), (max-height: 639px) {
+  .chapters {
+    display: none;
+  }
+}

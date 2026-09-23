@@ -1,0 +1,11 @@
+.masters-main {
+  --masters-content-width: var(--site-content-width, 120rem);
+  --masters-gutter: clamp(2rem, 5vw, 4.8rem);
+}
+
+.masters-main :global(.container) {
+  width: min(
+    var(--masters-content-width),
+    calc(100% - (var(--masters-gutter) * 2))
+  );
+}

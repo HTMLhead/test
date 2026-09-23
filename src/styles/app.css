@@ -1,0 +1,27 @@
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  padding: 1rem 2rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+main:focus,
+#page-content:focus {
+  outline: none;
+}
+.route-error {
+  min-height: 100vh;
+  padding: 15rem 2.4rem;
+  text-align: center;
+}
+.route-error a {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: underline;
+}

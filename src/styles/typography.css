@@ -1,0 +1,130 @@
+.typo-display-lg {
+  font-size: var(--font-display-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-display-lg);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-display-md {
+  font-size: var(--font-display-md);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-display-md);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-display-sm {
+  font-size: var(--font-display-sm);
+  font-weight: var(--weight-bold);
+  line-height: var(--line-display-sm);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-bold-xl {
+  font-size: var(--font-bold-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-bold-xl);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-bold-lg {
+  font-size: var(--font-bold-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-bold-lg);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-bold-md {
+  font-size: var(--font-bold-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-bold-md);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-bold-sm {
+  font-size: var(--font-bold-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-bold-sm);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-bold-xs {
+  font-size: var(--font-bold-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-bold-xs);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-body-xl {
+  font-size: var(--font-body-xl);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body-xl);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-body-lg {
+  font-size: var(--font-body-lg);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body-lg);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-body-md {
+  font-size: var(--font-body-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body-md);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-body-sm {
+  font-size: var(--font-body-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body-sm);
+  letter-spacing: var(--letter-spacing);
+}
+
+.typo-body-xs {
+  font-size: var(--font-body-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body-xs);
+  letter-spacing: var(--letter-spacing);
+}
+
+.section-title {
+  margin-top: 0.2rem;
+  color: var(--color-black);
+}
+
+.body-md {
+  color: var(--color-grey-2);
+}
+
+.bold-md {
+  font-weight: var(--weight-medium);
+}
+
+.text-wrap-pretty {
+  text-wrap: pretty;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+@media (min-width: 768px) {
+  .typo-bold-lg-tablet {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .typo-bold-xl-desktop {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}
+
+@media (min-width: 1440px) {
+  .typo-display-md-desktop {
+    font-size: var(--font-display-md);
+    line-height: var(--line-display-md);
+  }
+}

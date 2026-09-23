@@ -1,0 +1,141 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/fonts/Pretendard-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/fonts/Pretendard-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/fonts/Pretendard-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-display-lg: 5.6rem;
+  --font-display-md: 4.8rem;
+  --font-display-sm: 4rem;
+  --font-bold-xl: 2.6rem;
+  --font-bold-lg: 2rem;
+  --font-bold-md: 1.6rem;
+  --font-bold-sm: 1.4rem;
+  --font-bold-xs: 1.2rem;
+  --font-body-xl: 2.4rem;
+  --font-body-lg: 2rem;
+  --font-body-md: 1.6rem;
+  --font-body-sm: 1.4rem;
+  --font-body-xs: 1.2rem;
+  --line-display-lg: 8.2rem;
+  --line-display-md: 7rem;
+  --line-display-sm: 5.8rem;
+  --line-bold-xl: 3.8rem;
+  --line-bold-lg: 3rem;
+  --line-bold-md: 2.6rem;
+  --line-bold-sm: 2.4rem;
+  --line-bold-xs: 1.8rem;
+  --line-body-xl: 3.6rem;
+  --line-body-lg: 3rem;
+  --line-body-md: 2.6rem;
+  --line-body-sm: 2.4rem;
+  --line-body-xs: 1.8rem;
+  --weight-bold: 700;
+  --weight-medium: 500;
+  --weight-regular: 400;
+  --letter-spacing: -0.008em;
+  --color-black: #1b1b1b;
+  --color-white: #ffffff;
+  --color-grey-1: #3f3f3f;
+  --color-grey-2: #777777;
+  --color-grey-3: #c4c4c4;
+  --color-grey-4: #d9d9d9;
+  --color-off-white-1: #fafafa;
+  --color-off-white-2: #f8faff;
+  --color-green-1: #60b71c;
+  --color-green-2: #73c92d;
+  --color-green-3: #8ad953;
+  --color-green-4: #b4e791;
+  --color-green-dark-1: #2f5d32;
+  --color-orange-1: #cc7210;
+  --color-orange-2: #ff8e14;
+  --color-orange-3: #ffa543;
+  --color-orange-4: #ffc587;
+  --color-blue-1: #1379c4;
+  --color-blue-2: #8fdff3;
+  --color-blue-3: #c7e8ef;
+  --color-blue-4: #82c6d1;
+  --page-width: 144rem;
+  --site-content-width: 120rem;
+  --content-width: 128rem;
+  --page-gutter: 2.4rem;
+  font-family: "Pretendard", system-ui, sans-serif;
+  color: var(--color-black);
+  background: var(--color-white);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dd,
+dt,
+figure {
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Pretendard", system-ui, sans-serif;
+  font-size: var(--font-body-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body-md);
+  letter-spacing: var(--letter-spacing);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: min(var(--content-width), calc(100% - (var(--page-gutter) * 2)));
+  margin-inline: auto;
+}

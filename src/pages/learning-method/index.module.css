@@ -1,0 +1,11 @@
+.learning-method-main {
+  --learning-method-content-width: var(--site-content-width, 120rem);
+  --learning-method-gutter: clamp(2rem, 5vw, 4.8rem);
+}
+
+.learning-method-main :global(.container) {
+  width: min(
+    var(--learning-method-content-width),
+    calc(100% - (var(--learning-method-gutter) * 2))
+  );
+}

@@ -1,0 +1,5 @@
+.home-main {
+  --home-content-width: var(--site-content-width, 120rem);
+  --home-gutter: clamp(2rem, 5vw, 4.8rem);
+  overflow-x: clip;
+}

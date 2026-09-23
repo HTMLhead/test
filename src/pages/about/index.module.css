@@ -1,0 +1,11 @@
+.about-main {
+  --about-content-width: var(--site-content-width, 120rem);
+  --about-gutter: clamp(2rem, 5vw, 4.8rem);
+}
+
+.about-main :global(.container) {
+  width: min(
+    var(--about-content-width),
+    calc(100% - (var(--about-gutter) * 2))
+  );
+}

@@ -1,0 +1,125 @@
+.olive-principles {
+  padding-block: 7.2rem;
+  background: var(--color-black);
+}
+
+.olive-principles-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.section-heading {
+  display: flex;
+  max-width: 88rem;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.section-heading h2,
+.principle-grid h3 {
+  color: var(--color-white);
+}
+
+.section-heading p,
+.principle-grid p {
+  color: rgb(255 255 255 / 68%);
+}
+
+.section-heading h2 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.section-heading p {
+  font-size: var(--font-bold-md);
+  line-height: var(--line-bold-md);
+}
+
+.principle-grid h3 {
+  font-size: var(--font-bold-lg);
+  line-height: var(--line-bold-lg);
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.principle-grid li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  border: 0.1rem solid rgb(255 255 255 / 12%);
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 5%);
+}
+
+.principle-grid-line {
+  width: 3.2rem;
+  height: 0.4rem;
+  border-radius: 999rem;
+  background: var(--color-green-1);
+  content: "";
+}
+
+@media (min-width: 768px) {
+  .olive-principles {
+    padding-block: 10rem;
+  }
+
+  .olive-principles-inner {
+    gap: 4.8rem;
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+
+  .section-heading p {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+
+  .principle-grid h3 {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+
+  .principle-grid p {
+    font-size: var(--font-body-lg);
+    line-height: var(--line-body-lg);
+  }
+
+  .principle-grid li {
+    padding: 3.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .olive-principles {
+    padding-block: 12rem;
+  }
+
+  .olive-principles-inner {
+    gap: 5.6rem;
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .section-heading p {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+
+  .principle-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,60 @@
+.learning-hero {
+  position: relative;
+  display: flex;
+  min-height: 60rem;
+  align-items: center;
+  justify-content: center;
+  padding-block: 11rem 8rem;
+  background: var(--color-blue-2);
+  overflow: hidden;
+}
+
+.learning-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 86rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  text-align: center;
+}
+
+.learning-hero h1,
+.learning-hero p {
+  color: var(--color-black);
+}
+
+.learning-hero h1 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.learning-hero .typo-bold-xl {
+  max-width: 74rem;
+  font-size: var(--font-bold-lg);
+  line-height: var(--line-bold-lg);
+}
+
+@media (min-width: 768px) {
+  .learning-hero {
+    min-height: 72rem;
+    padding-block: 13rem 10rem;
+  }
+
+  .learning-hero h1 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .learning-hero .typo-bold-xl {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  .learning-hero {
+    min-height: 100vh;
+  }
+}

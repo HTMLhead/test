@@ -1,0 +1,23 @@
+.ds-badge {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ds-badge.is-green {
+  background: var(--color-green-2);
+}
+
+.ds-badge.is-orange {
+  background: var(--color-orange-2);
+}
+
+.ds-badge.is-grey {
+  background: var(--color-grey-3);
+}

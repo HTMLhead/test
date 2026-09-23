@@ -1,0 +1,28 @@
+.ds-tag {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  background: var(--tag-bg, var(--color-black));
+  color: var(--tag-fg, var(--color-white));
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ds-tag.is-green {
+  background: var(--color-green-2);
+}
+
+.ds-tag.is-orange {
+  background: var(--color-orange-2);
+}
+
+.ds-tag.is-blue {
+  background: var(--color-blue-2);
+}
+
+.ds-tag.is-grey {
+  background: var(--color-grey-3);
+}

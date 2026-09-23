@@ -1,0 +1,115 @@
+.masters-intro {
+  padding-block: 7.2rem;
+  background: var(--color-black);
+}
+
+.masters-intro-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section-heading {
+  display: flex;
+  max-width: 88rem;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.section-heading h2 {
+  color: var(--color-white);
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.narrative-list {
+  display: grid;
+  width: min(88rem, 100%);
+  gap: 0;
+  margin-inline: auto;
+}
+
+.narrative-list li {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  padding-block: 3.2rem;
+  border-top: 0.1rem solid rgb(255 255 255 / 16%);
+}
+
+.narrative-list li:last-child {
+  border-bottom: 0.1rem solid rgb(255 255 255 / 16%);
+}
+
+.narrative-index {
+  color: var(--color-green-3);
+}
+
+.narrative-copy {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.narrative-kicker {
+  color: var(--color-green-3);
+}
+
+.narrative-copy p:not(.narrative-kicker) {
+  color: var(--color-white);
+  font-size: var(--font-bold-md);
+  line-height: var(--line-bold-md);
+}
+
+@media (min-width: 768px) {
+  .masters-intro {
+    padding-block: 10rem;
+  }
+
+  .masters-intro-inner {
+    gap: 5.6rem;
+  }
+
+  .narrative-list li {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 2.4rem;
+    padding-block: 3.6rem;
+  }
+
+  .narrative-copy p:not(.narrative-kicker) {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+}
+
+@media (min-width: 1200px) {
+  .masters-intro {
+    padding-block: 14rem;
+  }
+
+  .masters-intro-inner {
+    gap: 7.2rem;
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .narrative-copy p:not(.narrative-kicker) {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+
+  .narrative-list li {
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: 3.2rem;
+    padding-block: 4rem;
+  }
+}

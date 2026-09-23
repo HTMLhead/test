@@ -1,0 +1,63 @@
+.learning-cta {
+  position: relative;
+  padding-block: 7.2rem;
+  background: var(--color-blue-2);
+}
+
+.learning-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.learning-cta h2 {
+  color: var(--color-black);
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.learning-cta p {
+  color: var(--color-grey-1);
+  font-size: var(--font-bold-md);
+  line-height: var(--line-bold-md);
+}
+
+.learning-cta :global(.ds-button) {
+  width: min(100%, 24rem);
+}
+
+@media (min-width: 768px) {
+  .learning-cta {
+    padding-block: 10rem;
+  }
+
+  .learning-cta h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+
+  .learning-cta p {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .learning-cta {
+    padding-block: 12rem;
+  }
+
+  .learning-cta h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .learning-cta p {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}

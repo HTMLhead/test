@@ -1,0 +1,67 @@
+.masters-cta {
+  position: relative;
+  padding-block: 7.2rem;
+  background: var(--color-orange-4);
+}
+
+.masters-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  text-align: center;
+}
+
+.masters-cta h2,
+.masters-cta p {
+  color: var(--color-black);
+}
+
+.masters-cta h2 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.masters-cta p {
+  max-width: 64rem;
+  font-size: var(--font-bold-md);
+  line-height: var(--line-bold-md);
+}
+
+.masters-cta :global(.ds-button) {
+  width: min(100%, 24rem);
+}
+
+@media (min-width: 768px) {
+  .masters-cta {
+    padding-block: 10rem;
+  }
+
+  .masters-cta h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+
+  .masters-cta p {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .masters-cta {
+    padding-block: 12rem;
+  }
+
+  .masters-cta h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .masters-cta p {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}

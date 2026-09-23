@@ -1,0 +1,62 @@
+{
+  "height": 11525,
+  "frames": [
+    "desktop-12.png",
+    "desktop-26.png",
+    "desktop-42.png",
+    "desktop-58.png",
+    "desktop-75.png",
+    "desktop-92.png"
+  ],
+  "text": "Dala\nDala\nMANIFESTO\nTEAM\nBLOG\nREQUEST ACCESS\nCookie consent\nThis website uses cookies. Learn more\nabout how we use Cookies\nACCEPT\nUnlock\ncollective\nwisdom.\nSTOP MANAGING KNOWLEDGE. START USING IT.\n\nPlug into your team’s shared brainpower. Ask Dala to\ninstantly find anything or anyone from any workplace\nsystem. Focus on doing your best work with context,\nconviction and clarity.\n\nREQUEST ACCESS\nMake decisions\nwith confidence\n\nDala’s bleeding-edge AI search tool automates\nextracting knowledge from across your\norganisation so that you can take the guesswork\nout of your work.\n\nThis is your workplace today. Countless fragments of critical knowledge\nscattered across hundreds of disparate systems.\n\n30% of your time is spent trying to organise and find the information and\nexpertise you need to do your job.\n\nThe impossible battle to make sense of this chaos leaves your team feeling\noverwhelmed and unproductive.\n\nThey’re confronted with the anxiety of bothering a busy coworker again, or\naimlessly trying to connect the dots with incomplete context.\n\nExisting solutions are cumbersome and quickly become outdated. Yet\nanother decaying system that requires continuous maintenance.\n\nThey fail to understand what you need from the vast amounts of\ninformation that your team creates every day.\n\nSpark lightbulb\nmoments\n\nDala is your intelligent, real-time source of truth\nthat eliminates the cultural, financial and\noperational struggles of splintered tools.\n\nWe connect your systems behind the scenes\nand pull together exactly the knowledge you\nrequire into an elegant contextual view.\n\nJust ask Dala for the answer that advances your\nwork, and helps you make better decisions with\nmore confidence.\n\nBuild a better world\nof work\n\nOur mission is to make work more coherent and\ndelightful—reframing productivity from doing more\nto being better.\n\nYour happiest and most purposeful moments at\nwork are when you’re in flow, intellectually\nstimulated, and creating value for customers.\n\nWe want to recreate that every time you\nexperience Dala. A tool that is completely\nintegrated with how you think, feel and work.\n\nOur team\nCO FOUNDER & CEO\nHaroun\nHickman\nTwitter\nLinkedin\nPRODUCT DESIGN LEAD\nPoppy\nReid\nTwitter\nLinkedin\nCO FOUNDER & CTO\nJoel\nKang\nTwitter\nLinkedin\nPrevious\nNext\nBuild with us.\n\nWe are actively hiring intentional, empathetic and\ncurious people who thrive on creating delightful\nexperiences. If you'd like to be a part of the journey, email\ncareers@dala.ai with your CV or portfolio, and a\nthoughtful note.\n\nRead more about our values here.\n\nSeedcamp\nJames Meekings\nCo-founder of Funding Circle\nEvening Fund\nValia Ventures\nRoman Schumacher\nCo-founder & CPO at Personio\nOur investors\n\nWe are supported by some of the world's most\npioneering operators and progressive funds to fuel our\ngrowth.\n\nYour workplace has the answer.\nAsk Dala to find it.\nREQUEST ACCESS\n© 2021 Dala Technologies Limited.\nAll rights reserved.\nMANIFESTO\nTEAM\nBLOG\nPRIVACY\nTERMS\nLinkedIn\nTwitter\nEmail",
+  "styles": [
+    {
+      "text": "Dala",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "24px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Unlockcollectivewisdom.",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "112.5px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Make decisions with confidence",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "42px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Spark lightbulb moments",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "42px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Build a better world of work",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "42px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Our team",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "78px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Our investors",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "78px",
+      "color": "rgb(255, 255, 255)"
+    },
+    {
+      "text": "Your workplace has the answer. Ask Dala to find it.",
+      "font": "PPNeueMontreal, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+      "size": "48px",
+      "color": "rgb(255, 255, 255)"
+    }
+  ]
+}

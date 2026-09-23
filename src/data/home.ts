@@ -1,0 +1,17 @@
+export const links = {
+  masters: "/masters",
+  olive: "/olive",
+  partners: "/partners",
+  learningMethod: "/learning-method",
+  about: "/about",
+  recruit: "/recruit",
+  refund: "/refund",
+  teamCulture: "/team-culture",
+  faq: "/faq",
+  blog: "https://codesquad-yoda.medium.com/",
+  youtube: "https://www.youtube.com/channel/UC8OU76dfIn8jvWmXt8roMZg",
+  facebook: "https://www.facebook.com/codesquad.kr/",
+  kakao: "https://pf.kakao.com/_zZxcAd",
+  email: "mailto:yoda@codesquad.kr",
+  waitlistForm: "https://forms.gle/ZP9xoTfwJyidTp45A",
+};

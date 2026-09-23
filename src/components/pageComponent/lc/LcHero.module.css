@@ -1,0 +1,70 @@
+.lc-hero {
+  position: relative;
+  display: flex;
+  min-height: 60rem;
+  align-items: center;
+  justify-content: center;
+  padding-block: 11rem 8rem;
+  background: var(--color-blue-3);
+  overflow: hidden;
+}
+
+.lc-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 98rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  text-align: center;
+}
+
+.lc-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.lc-hero h1 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.lc-hero p {
+  font-size: var(--font-bold-lg);
+  line-height: var(--line-bold-lg);
+}
+
+.lc-hero :global(.ds-button) {
+  width: min(100%, 24rem);
+}
+
+@media (min-width: 768px) {
+  .lc-hero {
+    min-height: 72rem;
+    padding-block: 13rem 10rem;
+  }
+
+  .lc-hero-inner {
+    gap: 3.2rem;
+  }
+
+  .lc-hero h1 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .lc-hero p {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  .lc-hero {
+    min-height: 100vh;
+  }
+}

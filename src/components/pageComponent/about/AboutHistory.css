@@ -1,0 +1,273 @@
+.history-section {
+  --history-card-height: 15rem;
+  --history-featured-card-height: 23.3rem;
+  padding-block: 7.2rem;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.history-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.history-header {
+  max-width: 78rem;
+}
+
+.history-header h2 {
+  color: var(--color-white);
+}
+
+.history-header p {
+  margin-top: 1.6rem;
+  color: var(--color-white);
+}
+
+.history-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.2rem;
+  align-items: start;
+}
+
+.history-card-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.year-nav {
+  position: relative;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.year-nav::before {
+  display: none;
+}
+
+.year-nav ol {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  width: max-content;
+  padding-bottom: 0.8rem;
+}
+
+.year-nav li {
+  position: relative;
+}
+
+.year-nav button {
+  position: relative;
+  display: inline-flex;
+  min-width: 7.2rem;
+  min-height: 4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.4rem;
+  border: 0.1rem solid var(--color-grey-2);
+  border-radius: 999rem;
+  background: transparent;
+  color: var(--color-grey-3);
+  text-align: left;
+  cursor: pointer;
+}
+
+.year-nav button::before {
+  display: none;
+}
+
+.year-nav button.is-active {
+  border-color: var(--color-green-1);
+  background: var(--color-green-1);
+  color: var(--color-white);
+}
+
+.year-nav button.is-active::before {
+  display: none;
+}
+
+.year-nav button.is-active::after {
+  display: none;
+}
+
+.history-card-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.history-card-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.history-card {
+  display: flex;
+  min-height: var(--history-card-height);
+  align-items: center;
+  justify-content: center;
+  padding: 1.8rem;
+  border: 0.1rem solid var(--color-grey-1);
+  border-radius: 0.8rem;
+  background: var(--color-black);
+  text-align: center;
+}
+
+.history-card h3 {
+  color: var(--color-white);
+}
+
+.history-card h3 span {
+  display: block;
+}
+
+.history-card.is-featured {
+  min-height: var(--history-featured-card-height);
+  border-color: var(--color-blue-1);
+  background: rgb(19 121 196 / 30%);
+}
+
+.history-card-column.is-camp .history-card:not(.is-featured) {
+  border-color: var(--color-grey-2);
+  background: var(--color-grey-1);
+}
+
+.history-card-column.is-etc .history-card:not(.is-featured) {
+  border-color: var(--color-grey-3);
+  background: var(--color-grey-2);
+}
+
+.history-header h2 {
+  font-size: var(--font-bold-xl);
+  line-height: var(--line-bold-xl);
+}
+
+.history-header p {
+  font-size: var(--font-bold-md);
+  line-height: var(--line-bold-md);
+}
+
+.history-card h3,
+.history-card-title > div {
+  font-size: var(--font-bold-lg);
+  line-height: var(--line-bold-lg);
+}
+
+@media (min-width: 768px) {
+  .history-section {
+    padding-block: 10rem;
+  }
+
+  .history-inner {
+    gap: 4.8rem;
+  }
+
+  .history-header h2 {
+    font-size: var(--font-display-sm);
+    line-height: var(--line-display-sm);
+  }
+
+  .history-header p {
+    font-size: var(--font-bold-lg);
+    line-height: var(--line-bold-lg);
+  }
+
+  .history-content {
+    gap: 4rem;
+  }
+
+  .history-card-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .history-card h3,
+  .history-card-title > div {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  .history-section {
+    padding-block: 12rem;
+  }
+
+  .history-header h2 {
+    font-size: var(--font-display-lg);
+    line-height: var(--line-display-lg);
+  }
+
+  .history-header p {
+    font-size: var(--font-bold-xl);
+    line-height: var(--line-bold-xl);
+  }
+
+  .history-content {
+    grid-template-columns: 18rem minmax(0, 1fr);
+    gap: 5.6rem;
+  }
+
+  .year-nav {
+    padding: 1.2rem 0 1.2rem 2.4rem;
+    overflow: visible;
+  }
+
+  .year-nav::before {
+    position: absolute;
+    top: 1.6rem;
+    bottom: 1.6rem;
+    left: 0.4rem;
+    display: block;
+    width: 0.1rem;
+    border-radius: 999rem;
+    background: var(--color-grey-1);
+    content: "";
+  }
+
+  .year-nav ol {
+    flex-direction: column;
+    gap: 0.6rem;
+    width: auto;
+    padding-bottom: 0;
+  }
+
+  .year-nav button {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 0.8rem 1.4rem;
+    border: 0;
+  }
+
+  .year-nav button::before {
+    position: absolute;
+    top: 50%;
+    left: -2.35rem;
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--color-grey-2);
+    content: "";
+    transform: translateY(-50%);
+  }
+
+  .year-nav button.is-active::before {
+    left: -2.45rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-green-1);
+    box-shadow: 0 0 0 0.4rem var(--color-grey-1);
+  }
+
+  .history-card-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
