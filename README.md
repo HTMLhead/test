@@ -76,6 +76,10 @@ const courses = await getPublicCourses({
 
 ## 배포
 
+Netlify에서 Git 저장소를 연결하면 루트의 `netlify.toml`이 빌드 명령 `npm run build`, 배포 폴더 `dist`, Node.js 22를 지정합니다. 저장소 루트가 프로젝트의 기본 디렉터리여야 합니다.
+
+폴더를 직접 업로드하는 수동 배포는 Netlify에서 빌드하지 않습니다. 먼저 로컬에서 `npm run build`를 실행한 다음, 기존 사이트의 Deploys 화면에 생성된 **`dist` 폴더**를 업로드합니다. 프로젝트 전체나 `src`, `public` 폴더를 올리면 앱이 실행되지 않습니다.
+
 `npm run build` 결과인 `dist`를 정적 호스팅에 배포합니다. `/about` 같은 경로로 직접 접속하거나 새로고침해도 앱이 열리도록 **존재하지 않는 파일 요청을 `/index.html`로 연결하는 SPA fallback**이 필요합니다. Netlify용 `public/_redirects`가 포함되어 있습니다. 다른 호스팅에서는 같은 rewrite를 설정합니다.
 
 Netlify용 `_redirects`에는 SPA fallback보다 먼저 `/api/olive/graphql`을 운영 Olive의 `/api/graphql`로 전달하는 프록시 규칙도 포함되어 있습니다. 다른 호스팅에서는 이 경로의 POST 본문과 `Content-Type`, `Accept`, `x-locale` 헤더를 전달하는 프록시를 별도로 설정해야 합니다. Vite 프록시는 정적 빌드에 포함되지 않습니다. 운영 API 주소가 바뀌면 `_redirects` 또는 호스팅 프록시도 함께 변경합니다.
