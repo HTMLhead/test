@@ -18,6 +18,10 @@ import quotation from "./quotation.svg";
 import roundFilled from "./round-filled.svg";
 import roundLine from "./round-line.svg";
 import facebook from "./facebook.svg";
+import instagram from "./instagram.svg";
+import link from "./link.svg";
+import linkedin from "./linkedin.svg";
+import x from "./x.svg";
 import kakaotalk from "./kakaotalk.svg";
 import medium from "./medium.svg";
 import youtube from "./youtube.svg";
@@ -44,7 +48,11 @@ export default {
   roundLine,
   hash,
   facebook,
+  instagram,
   kakaotalk,
+  link,
+  linkedin,
+  x,
   medium,
   youtube,
   tool,

@@ -1,6 +1,7 @@
 export const links = {
   masters: "/masters",
   olive: "/olive",
+  aiExperience: "/olive/experience",
   partners: "/partners",
   learningMethod: "/learning-method",
   about: "/about",

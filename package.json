@@ -12,7 +12,6 @@
     "preview": "vite preview --host 127.0.0.1 --port 4322",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "check:olive": "node --experimental-strip-types scripts/check-olive.ts",
-    "test:e2e": "playwright test",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"tests/**/*.ts\" *.ts *.json *.html *.md"
   },
   "dependencies": {

@@ -26,7 +26,7 @@ export default function CoursesSection() {
       heroVariant: "olive",
       palette: "olive",
       layout: "featured",
-      title: "함께 배우는 AI - Olive",
+      title: "AI 배우고 써보기 - Olive",
       description:
         "미션 기반 학습으로 누구나 AI 활용을 익히는 B2C 교육 서비스입니다.",
       details: ["AI 입문·활용", "미션 중심 학습", "온라인 학습"],

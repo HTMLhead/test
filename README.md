@@ -19,15 +19,6 @@ npm run preview   # 프로덕션 빌드 확인
 npm test          # GraphQL 요청 모듈 테스트
 ```
 
-브라우저 테스트:
-
-```sh
-npx playwright install chromium
-npm run test:e2e
-```
-
-기존 Chromium 실행 파일을 사용하려면 `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`를 지정합니다. 테스트는 모바일 390px, 태블릿 834px, 데스크톱 1440px에서 실행됩니다. 테스트 주소는 `package.json`의 개발 포트를 따르며 `PLAYWRIGHT_BASE_URL`로 변경할 수 있습니다.
-
 ## 화면
 
 | 주소               | 화면           |

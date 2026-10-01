@@ -1,0 +1,146 @@
+.picker {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.picker legend {
+  margin-bottom: 1.6rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  min-width: 0;
+  padding: 2rem;
+  border: 1px solid #d9ded3;
+  border-radius: 1.6rem;
+  background: #fff;
+  cursor: pointer;
+}
+.options label[data-selected="true"] {
+  border-color: #56614e;
+  box-shadow: inset 0 0 0 1px #56614e;
+}
+.options input {
+  width: 1.8rem;
+  height: 1.8rem;
+  flex-shrink: 0;
+  accent-color: #46563d;
+}
+.serviceName {
+  display: grid;
+  gap: 0.4rem;
+}
+.serviceName strong {
+  color: #283020;
+  font-size: 2rem;
+}
+.serviceName > span {
+  color: #73786c;
+  font-size: 1.3rem;
+}
+.selectedMark {
+  margin-left: auto;
+  color: #526644;
+  font-size: 1.7rem;
+}
+.picker > p {
+  margin: 1.4rem 0 0;
+  color: #666f5e;
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+.composer {
+  container-type: inline-size;
+  min-width: 0;
+  padding: 1.2rem;
+  border-radius: 1.6rem;
+  background: #e8eedf;
+  color: #30352c;
+}
+.label {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.requestForm {
+  display: grid;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  border-radius: 0.8rem;
+  background: #fff;
+}
+.content {
+  display: grid;
+  min-width: 0;
+  gap: 1.6rem;
+}
+.requestForm textarea {
+  display: block;
+  width: 100%;
+  padding: 1.6rem;
+  border: 1px solid #d9ded3;
+  border-radius: 0.8rem;
+  background: #fff;
+  color: #30352c;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1.85;
+  resize: none;
+  overflow-y: auto;
+  height: 12.3rem;
+}
+.requestForm textarea::placeholder {
+  color: #8a8e83;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.actions button:focus-visible,
+.requestForm textarea:focus-visible,
+.options input:focus-visible {
+  outline: 2px solid #858585;
+  outline-offset: 2px;
+}
+.hint {
+  margin: 0;
+  color: #707866;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+@container (max-width: 600px) {
+  .requestForm {
+    padding: 1.6rem;
+  }
+}
+@media (max-width: 599px) {
+  .options {
+    gap: 1rem;
+  }
+  .options label {
+    padding: 1.4rem 1rem;
+    gap: 0.8rem;
+  }
+  .serviceName strong {
+    font-size: 1.7rem;
+  }
+  .selectedMark {
+    display: none;
+  }
+  .requestForm textarea {
+    padding: 1.2rem;
+  }
+}

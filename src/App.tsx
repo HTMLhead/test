@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import {
   createBrowserRouter,
   Outlet,
@@ -8,6 +8,7 @@ import {
   useRouteError,
   isRouteErrorResponse,
   redirectDocument,
+  redirect,
 } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,6 +20,9 @@ import LearningMethodPage from "@/pages/learning-method/index";
 import AboutPage from "@/pages/about/index";
 import NotFoundPage from "@/pages/404";
 import { trackPageView } from "@/lib/analytics";
+
+const AiExperiencePage = lazy(() => import("@/pages/olive/experience"));
+const PhotoStoryPage = lazy(() => import("@/pages/ex1"));
 
 function RootLayout() {
   const location = useLocation();
@@ -75,8 +79,25 @@ const router = createBrowserRouter([
     errorElement: <RouteError />,
     children: [
       { index: true, element: <HomePage /> },
+      {
+        path: "ex1",
+        element: (
+          <Suspense fallback={<main aria-busy="true" />}>
+            <PhotoStoryPage />
+          </Suspense>
+        ),
+      },
       { path: "masters", element: <MastersPage /> },
       { path: "olive", element: <OlivePage /> },
+      {
+        path: "olive/experience/:taskId?",
+        element: (
+          <Suspense fallback={<main aria-busy="true" />}>
+            <AiExperiencePage />
+          </Suspense>
+        ),
+      },
+      { path: "ai-experience", loader: () => redirect("/olive/experience") },
       { path: "partners", element: <PartnersPage /> },
       { path: "learning-method", element: <LearningMethodPage /> },
       { path: "about", element: <AboutPage /> },

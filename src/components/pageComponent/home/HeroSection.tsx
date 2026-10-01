@@ -15,7 +15,7 @@ export default function HeroSection() {
   ) => (typeof asset === "string" ? asset : asset.src);
   const carouselItems = [
     {
-      title: "함께 배우는 AI, Olive",
+      title: "AI 배우고 써보기, Olive",
       description: "미션을 따라가며 누구나 AI 활용을 익힙니다",
       href: links.olive,
       linkLabel: "자세히 보기",

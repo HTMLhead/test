@@ -33,7 +33,7 @@ export default function Footer() {
             <div>
               <strong>교육 과정</strong>
               <AppLink href={links.masters}>마스터즈</AppLink>
-              <AppLink href={links.olive}>함께 배우는 AI</AppLink>
+              <AppLink href={links.olive}>AI 배우고 써보기</AppLink>
               <AppLink href={links.partners}>LC - Learning Consulting</AppLink>
             </div>
             {/* <div>

@@ -8,7 +8,9 @@ import styles from "./Header.module.css";
 export default function Header() {
   const { pathname } = useLocation();
   const isOlivePage =
-    pathname === links.olive || pathname.startsWith(`${links.olive}/`);
+    pathname === links.olive ||
+    pathname.startsWith(`${links.olive}/`) ||
+    pathname === links.aiExperience;
   const [scrolled, setScrolled] = useState(() => window.scrollY > 8);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -83,7 +85,7 @@ export default function Header() {
               마스터즈
             </AppLink>
             <AppLink className={cx(styles, "typo-body-sm")} href={links.olive}>
-              함께 배우는 AI
+              AI 배우고 써보기
             </AppLink>
             <div
               className={cx(styles, [
@@ -168,7 +170,7 @@ export default function Header() {
             마스터즈
           </AppLink>
           <AppLink className={cx(styles, "typo-bold-md")} href={links.olive}>
-            함께 배우는 AI
+            AI 배우고 써보기
           </AppLink>
           <div className={cx(styles, "mobile-nav-group")}>
             <span className={cx(styles, "typo-body-sm")}>기업 교육</span>

@@ -62,7 +62,8 @@ export default function OliveCourses() {
             <p className={styles.eyebrow}>올리브 코스 둘러보기</p>
             <h2 id="olive-courses-heading">지금 만나볼 수 있는 코스</h2>
             <p className={styles.description}>
-              관심 있는 코스를 살펴보고, 올리브에서 학습을 시작해 보세요.
+              작은 체험을 더 깊은 배움으로 이어가세요. 올리브에서 미션을
+              해결하고 동료와 피드백을 나눕니다.
             </p>
           </div>
           <Button

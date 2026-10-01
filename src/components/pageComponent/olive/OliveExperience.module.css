@@ -1,0 +1,97 @@
+.section {
+  padding-block: 8rem;
+  background: #fafaf5;
+  scroll-margin-top: 11rem;
+}
+.inner {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.eyebrow {
+  color: #49633d;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.copy h2 {
+  font-size: clamp(3rem, 3.3vw, 4.4rem);
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
+}
+.copy > p:not(.eyebrow) {
+  max-width: 48rem;
+  color: #565c51;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.note {
+  color: #62685d;
+  font-size: 1.3rem;
+}
+.path {
+  padding: 3.2rem;
+  border-radius: 2rem;
+  background: #eaf0e1;
+}
+.pathLabel {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+}
+.path ol {
+  display: grid;
+  gap: 2.4rem;
+  list-style: none;
+}
+.path li {
+  display: flex;
+  gap: 1.8rem;
+}
+.path li > span {
+  color: #536c41;
+  font-size: 1.3rem;
+  padding-top: 0.4rem;
+}
+.path h3 {
+  font-size: 1.9rem;
+  margin-bottom: 0.6rem;
+}
+.path li p {
+  font-size: 1.5rem;
+  color: #565c51;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.more {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #cbd6be;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+.more:focus-visible {
+  outline: 2px solid #365326;
+  outline-offset: 5px;
+}
+@media (min-width: 900px) {
+  .section {
+    padding-block: 11rem;
+  }
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+  }
+  .path {
+    padding: 4rem;
+  }
+}

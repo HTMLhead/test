@@ -1,3 +1,5 @@
+import { experiencePath, experienceTitle, experienceTasks } from "./experience";
+
 export const siteSeo = {
   name: "코드스쿼드",
   defaultTitle: "코드스쿼드 | AI·개발 교육",
@@ -33,12 +35,27 @@ export const seoPages = [
   },
   {
     path: "/olive",
-    title: "함께 배우는 AI Olive | 코드스쿼드",
+    title: "AI 배우고 써보기 | 코드스쿼드",
     description:
-      "미션을 해결하며 동료와 함께 AI 활용법을 익히는 코드스쿼드의 실전형 학습 플랫폼 Olive를 소개합니다.",
+      "AI와의 첫 대화를 직접 체험하고, 올리브의 미션과 동료 피드백으로 AI 활용을 배워보세요.",
     priority: "0.8",
     changefreq: "weekly",
   },
+  {
+    path: experiencePath,
+    title: `${experienceTitle} | 코드스쿼드`,
+    description:
+      "AI 요청의 원리를 이해하고 나만의 프롬프트를 만든 뒤, 후속 요청으로 다듬는 체험입니다.",
+    priority: "0.7",
+    changefreq: "monthly",
+  },
+  ...experienceTasks.map((task) => ({
+    path: `${experiencePath}/${task.id}` as const,
+    title: `${task.title} | ${experienceTitle} | 코드스쿼드`,
+    description: task.description,
+    priority: "0.6",
+    changefreq: "monthly",
+  })),
   {
     path: "/partners",
     title: "LC 기업 교육 | 코드스쿼드",
