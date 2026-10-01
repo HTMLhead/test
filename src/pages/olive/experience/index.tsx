@@ -72,30 +72,30 @@ export default function ExperiencePage() {
                 >
                   목차 {isTaskNavOpen ? "닫기" : "보기"}
                 </button>
+                <nav
+                  id="experience-task-nav"
+                  className={styles.taskNav}
+                  aria-label="단계 목차"
+                  hidden={!isTaskNavOpen}
+                >
+                  <p>코스 목차</p>
+                  <ol>
+                    {experienceTasks.map((item) => (
+                      <li key={item.id}>
+                        <AppLink
+                          href={`${experiencePath}/${item.id}`}
+                          aria-current={item.id === taskId ? "page" : undefined}
+                          onClick={() => setOpenTaskId(null)}
+                        >
+                          <span>{item.id.padStart(2, "0")}</span>
+                          {item.title}
+                        </AppLink>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
               </div>
               <h1 className={styles.srOnly}>{task.title}</h1>
-              <nav
-                id="experience-task-nav"
-                className={styles.taskNav}
-                aria-label="단계 목차"
-                hidden={!isTaskNavOpen}
-              >
-                <p>코스 목차</p>
-                <ol>
-                  {experienceTasks.map((item) => (
-                    <li key={item.id}>
-                      <AppLink
-                        href={`${experiencePath}/${item.id}`}
-                        aria-current={item.id === taskId ? "page" : undefined}
-                          onClick={() => setOpenTaskId(null)}
-                      >
-                        <span>{item.id.padStart(2, "0")}</span>
-                        {item.title}
-                      </AppLink>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
               <div className={styles.taskBody}>
                 <ServiceProvider>
                   <Content key={task.id} />
@@ -104,22 +104,22 @@ export default function ExperiencePage() {
                   className={styles.taskPagination}
                   aria-label="이전 다음 단계"
                 >
-                    <AppLink
-                      href={
-                        previous
-                          ? `${experiencePath}/${previous.id}`
-                          : experiencePath
-                      }
-                      onClick={() => setOpenTaskId(null)}
+                  <AppLink
+                    href={
+                      previous
+                        ? `${experiencePath}/${previous.id}`
+                        : experiencePath
+                    }
+                    onClick={() => setOpenTaskId(null)}
                   >
                     <span>← {previous ? "이전 단계" : "코스 소개"}</span>
                     <strong>{previous?.title ?? experienceTitle}</strong>
                   </AppLink>
-                    <AppLink
-                      href={
-                        next ? `${experiencePath}/${next.id}` : experiencePath
-                      }
-                      onClick={() => setOpenTaskId(null)}
+                  <AppLink
+                    href={
+                      next ? `${experiencePath}/${next.id}` : experiencePath
+                    }
+                    onClick={() => setOpenTaskId(null)}
                   >
                     <span>{next ? "다음 단계" : "코스 소개로 돌아가기"} →</span>
                     <strong>{next?.title ?? "전체 학습 돌아보기"}</strong>
