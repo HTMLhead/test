@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Button from "@/components/ui/Button";
 import { experienceOutcomes } from "@/data/experience";
 import { MediaSlot, RefinementExample } from "./Interactions";
@@ -6,6 +6,10 @@ import PromptComposer, { ServicePicker } from "./PromptComposer";
 import AiResponseJourney from "./AiResponseJourney";
 import { useDraft } from "./useDraft";
 import styles from "./index.module.css";
+
+type CompletionProps = {
+  onCompleteChange: (complete: boolean) => void;
+};
 
 function Quiz({
   id,
@@ -15,6 +19,7 @@ function Quiz({
   correct,
   hint,
   explanation,
+  onCompleteChange,
 }: {
   id: string;
   context?: ReactNode;
@@ -23,9 +28,17 @@ function Quiz({
   correct: number;
   hint: string;
   explanation: string;
-}) {
-  const [answer, setAnswer] = useState<number | null>(null);
-  const [submitted, setSubmitted] = useState<number | null>(null);
+} & CompletionProps) {
+  const [progress, setProgress] = useDraft(`quiz-${id}`, {
+    answer: "",
+    submitted: "",
+  });
+  const answer = progress.answer === "" ? null : Number(progress.answer);
+  const submitted =
+    progress.submitted === "" ? null : Number(progress.submitted);
+  useEffect(() => {
+    onCompleteChange(submitted === correct);
+  }, [submitted, correct, onCompleteChange]);
   return (
     <div
       className={styles.quiz}
@@ -61,8 +74,8 @@ function Quiz({
                 name={id}
                 checked={answer === index}
                 onChange={() => {
-                  setAnswer(index);
-                  setSubmitted(null);
+                  setProgress({ answer: String(index), submitted: "" });
+                  onCompleteChange(false);
                 }}
               />
               {text}
@@ -74,7 +87,11 @@ function Quiz({
         <Button
           label="정답 확인하기"
           status={answer === null ? "disabled" : "accent"}
-          onClick={() => setSubmitted(answer)}
+          onClick={() => {
+            if (answer === null) return;
+            setProgress({ answer: String(answer), submitted: String(answer) });
+            onCompleteChange(answer === correct);
+          }}
         />
         <p
           role="status"
@@ -133,7 +150,10 @@ const activities = [
   },
 ];
 
-export function StartTask() {
+export function StartTask({ onCompleteChange }: CompletionProps) {
+  useEffect(() => {
+    onCompleteChange(true);
+  }, [onCompleteChange]);
   return (
     <div className={styles.lesson}>
       <MediaSlot
@@ -210,7 +230,7 @@ const chatgptFeatures = [
   },
 ];
 
-export function UnderstandingTask() {
+export function UnderstandingTask({ onCompleteChange }: CompletionProps) {
   return (
     <div className={styles.lesson}>
       <section>
@@ -285,6 +305,7 @@ export function UnderstandingTask() {
         <h2>퀴즈로 확인하기</h2>
         <Quiz
           id="ai-introduction"
+          onCompleteChange={onCompleteChange}
           question="ChatGPT에 대한 설명으로 가장 알맞은 것은 무엇인가요?"
           answers={[
             "모든 질문의 정답을 보장하는 사전이다.",
@@ -311,7 +332,7 @@ export function UnderstandingTask() {
 const firstConversation =
   "나는 대화형 AI를 처음 써봐.\n일상에서 해볼 만한 간단한 활용 예시를 세 가지 알려줘.\n각 예시마다 내가 그대로 입력할 수 있는 요청 문장도 써줘.";
 
-export function ServicesTask() {
+export function ServicesTask({ onCompleteChange }: CompletionProps) {
   const [draft, setDraft] = useDraft("first-conversation", {
     prompt: firstConversation,
   });
@@ -344,6 +365,7 @@ export function ServicesTask() {
         <Checklist
           storageKey="first-answer"
           items={["AI에게서 첫 답변을 받았어요."]}
+          onCompleteChange={onCompleteChange}
         />
       </section>
       <section>
@@ -383,7 +405,7 @@ export function ServicesTask() {
   );
 }
 
-export function PracticeTask() {
+export function PracticeTask({ onCompleteChange }: CompletionProps) {
   const [draft, setDraft] = useDraft("dinner-menu", {
     preference: "",
     conditions: "",
@@ -540,6 +562,7 @@ export function PracticeTask() {
         <h2>퀴즈로 확인하기</h2>
         <Quiz
           id="prompt-refine"
+          onCompleteChange={onCompleteChange}
           context={
             <>
               <p>
@@ -590,14 +613,18 @@ export function PracticeTask() {
 function Checklist({
   storageKey,
   items,
+  onCompleteChange,
 }: {
   storageKey: string;
   items: readonly string[];
-}) {
+} & CompletionProps) {
   const [checked, setChecked] = useDraft(
     storageKey,
     Object.fromEntries(items.map((_, i) => [String(i), ""])),
   );
+  useEffect(() => {
+    onCompleteChange(items.every((_, i) => checked[i] === "yes"));
+  }, [checked, items.length, onCompleteChange]);
   return (
     <div className={styles.checklist}>
       {items.map((item, i) => (
@@ -605,9 +632,16 @@ function Checklist({
           <input
             type="checkbox"
             checked={checked[i] === "yes"}
-            onChange={(event) =>
-              setChecked({ ...checked, [i]: event.target.checked ? "yes" : "" })
-            }
+            onChange={(event) => {
+              const nextChecked: Record<string, string> = {
+                ...checked,
+                [i]: event.target.checked ? "yes" : "",
+              };
+              setChecked(nextChecked);
+              onCompleteChange(
+                items.every((_, index) => nextChecked[index] === "yes"),
+              );
+            }}
           />
           <span>{item}</span>
         </label>
@@ -642,7 +676,7 @@ const myWorkExamples = [
   },
 ];
 
-export function MyWorkTask() {
+export function MyWorkTask({ onCompleteChange }: CompletionProps) {
   const [fields, setFields] = useDraft("my-prompt", {
     goal: "",
     context: "",
@@ -809,6 +843,7 @@ export function MyWorkTask() {
             "원하는 결과의 형태나 길이를 알려 줬다.",
             "바꾸면 안 되는 것이나 피해야 할 것을 적었다.",
           ]}
+          onCompleteChange={onCompleteChange}
         />
       </section>
       <section>
@@ -836,7 +871,7 @@ export function MyWorkTask() {
   );
 }
 
-export function JudgmentTask() {
+export function JudgmentTask({ onCompleteChange }: CompletionProps) {
   return (
     <div className={styles.lesson}>
       <section>
@@ -890,7 +925,11 @@ export function JudgmentTask() {
           AI에게 요청하고, 답을 고치고, 내 일에 직접 써 봤습니다. 처음 세운
           목표를 이루었는지 확인해 보세요.
         </p>
-        <Checklist storageKey="learning-goals" items={experienceOutcomes} />
+        <Checklist
+          storageKey="learning-goals"
+          items={experienceOutcomes}
+          onCompleteChange={onCompleteChange}
+        />
       </section>
     </div>
   );

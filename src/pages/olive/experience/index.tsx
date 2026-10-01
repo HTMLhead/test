@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useCallback, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import Layout from "@/layouts/Layout";
 import Button from "@/components/ui/Button";
 import AppLink from "@/components/ui/AppLink";
@@ -20,6 +20,7 @@ import {
 import styles from "./index.module.css";
 import CourseOverview from "./CourseOverview";
 import { ServiceProvider } from "./PromptComposer";
+import { useDraft } from "./useDraft";
 
 const taskContent = [
   StartTask,
@@ -33,13 +34,49 @@ const taskContent = [
 export default function ExperiencePage() {
   const { taskId } = useParams();
   const [openTaskId, setOpenTaskId] = useState<string | null>(null);
+  const [completed, setCompleted] = useDraft("course-progress", {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+  });
+  const onCompleteChange = useCallback(
+    (complete: boolean) => {
+      if (!taskId) return;
+      const value = complete ? "yes" : "";
+      setCompleted((previous) =>
+        previous[taskId as keyof typeof previous] === value
+          ? previous
+          : { ...previous, [taskId]: value },
+      );
+    },
+    [taskId, setCompleted],
+  );
   const isTaskNavOpen = openTaskId === taskId;
   const index = experienceTasks.findIndex((task) => task.id === taskId);
   if (taskId !== undefined && index < 0) return <NotFoundPage />;
+  let unlockedIndex = 0;
+  while (
+    unlockedIndex < experienceTasks.length - 1 &&
+    completed[experienceTasks[unlockedIndex].id] === "yes"
+  ) {
+    unlockedIndex += 1;
+  }
+  if (index > unlockedIndex) {
+    return (
+      <Navigate
+        to={`${experiencePath}/${experienceTasks[unlockedIndex].id}`}
+        replace
+      />
+    );
+  }
   const task = index < 0 ? null : experienceTasks[index];
   const Content = taskContent[index];
   const previous = experienceTasks[index - 1];
   const next = experienceTasks[index + 1];
+  const isCurrentComplete = task ? completed[task.id] === "yes" : false;
 
   return (
     <Layout
@@ -80,16 +117,26 @@ export default function ExperiencePage() {
                 >
                   <p>코스 목차</p>
                   <ol>
-                    {experienceTasks.map((item) => (
+                    {experienceTasks.map((item, itemIndex) => (
                       <li key={item.id}>
-                        <AppLink
-                          href={`${experiencePath}/${item.id}`}
-                          aria-current={item.id === taskId ? "page" : undefined}
-                          onClick={() => setOpenTaskId(null)}
-                        >
-                          <span>{item.id.padStart(2, "0")}</span>
-                          {item.title}
-                        </AppLink>
+                        {itemIndex <= unlockedIndex ? (
+                          <AppLink
+                            href={`${experiencePath}/${item.id}`}
+                            aria-current={
+                              item.id === taskId ? "page" : undefined
+                            }
+                            onClick={() => setOpenTaskId(null)}
+                          >
+                            <span>{item.id.padStart(2, "0")}</span>
+                            {item.title}
+                          </AppLink>
+                        ) : (
+                          <span className={styles.taskNavLocked}>
+                            <span>{item.id.padStart(2, "0")}</span>
+                            {item.title}
+                            <span className={styles.lockMark}>잠김</span>
+                          </span>
+                        )}
                       </li>
                     ))}
                   </ol>
@@ -98,7 +145,7 @@ export default function ExperiencePage() {
               <h1 className={styles.srOnly}>{task.title}</h1>
               <div className={styles.taskBody}>
                 <ServiceProvider>
-                  <Content key={task.id} />
+                  <Content key={task.id} onCompleteChange={onCompleteChange} />
                 </ServiceProvider>
                 <nav
                   className={styles.taskPagination}
@@ -115,15 +162,29 @@ export default function ExperiencePage() {
                     <span>← {previous ? "이전 단계" : "코스 소개"}</span>
                     <strong>{previous?.title ?? experienceTitle}</strong>
                   </AppLink>
-                  <AppLink
-                    href={
-                      next ? `${experiencePath}/${next.id}` : experiencePath
-                    }
-                    onClick={() => setOpenTaskId(null)}
-                  >
-                    <span>{next ? "다음 단계" : "코스 소개로 돌아가기"} →</span>
-                    <strong>{next?.title ?? "전체 학습 돌아보기"}</strong>
-                  </AppLink>
+                  {next && !isCurrentComplete ? (
+                    <div className={styles.lockedNext} aria-disabled="true">
+                      <span>다음 단계 →</span>
+                      <strong>{next.title}</strong>
+                      <small>
+                        {task.id === "2" || task.id === "4"
+                          ? "퀴즈 정답을 확인하면 열립니다."
+                          : "확인 항목을 모두 체크하면 열립니다."}
+                      </small>
+                    </div>
+                  ) : (
+                    <AppLink
+                      href={
+                        next ? `${experiencePath}/${next.id}` : experiencePath
+                      }
+                      onClick={() => setOpenTaskId(null)}
+                    >
+                      <span>
+                        {next ? "다음 단계" : "코스 소개로 돌아가기"} →
+                      </span>
+                      <strong>{next?.title ?? "전체 학습 돌아보기"}</strong>
+                    </AppLink>
+                  )}
                 </nav>
                 {!next && (
                   <div className={styles.next}>
@@ -144,7 +205,7 @@ export default function ExperiencePage() {
               </div>
             </div>
           ) : (
-            <CourseOverview />
+            <CourseOverview unlockedIndex={unlockedIndex} />
           )}
         </div>
       </main>

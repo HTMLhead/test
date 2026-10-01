@@ -78,7 +78,11 @@ function ShareFact() {
   );
 }
 
-export default function CourseOverview() {
+export default function CourseOverview({
+  unlockedIndex,
+}: {
+  unlockedIndex: number;
+}) {
   return (
     <>
       <header className={styles.courseHero}>
@@ -167,25 +171,46 @@ export default function CourseOverview() {
             aria-labelledby="curriculum-title"
           >
             <div className={styles.sectionHeading}>
-              <h2 id="curriculum-title">코스 목차</h2>
+              <div>
+                <h2 id="curriculum-title">코스 목차</h2>
+                <p>각 단계를 마치면 다음 단계가 열립니다.</p>
+              </div>
             </div>
             <ol>
-              {experienceTasks.map((item) => (
+              {experienceTasks.map((item, itemIndex) => (
                 <li key={item.id}>
-                  <AppLink href={`${experiencePath}/${item.id}`}>
-                    <span className={styles.taskNumber}>
-                      {item.id.padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3>
-                        {item.title}{" "}
-                        <span className={styles.taskMinutes}>
-                          {item.minutes}분
-                        </span>
-                      </h3>
-                      <p>{item.description}</p>
+                  {itemIndex <= unlockedIndex ? (
+                    <AppLink href={`${experiencePath}/${item.id}`}>
+                      <span className={styles.taskNumber}>
+                        {item.id.padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3>
+                          {item.title}{" "}
+                          <span className={styles.taskMinutes}>
+                            {item.minutes}분
+                          </span>
+                        </h3>
+                        <p>{item.description}</p>
+                      </div>
+                    </AppLink>
+                  ) : (
+                    <div className={styles.curriculumLocked}>
+                      <span className={styles.taskNumber}>
+                        {item.id.padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3>
+                          {item.title}{" "}
+                          <span className={styles.taskMinutes}>
+                            {item.minutes}분
+                          </span>
+                        </h3>
+                        <p>{item.description}</p>
+                      </div>
+                      <span className={styles.lockMark}>잠김</span>
                     </div>
-                  </AppLink>
+                  )}
                 </li>
               ))}
             </ol>
